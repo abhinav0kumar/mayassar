@@ -117,3 +117,11 @@ Four contenders on the `clean-up` case, same fixture, same graders: anticlaude, 
 - [ ] **Step 2:** Run all four at `--runs 3`, writing reports to `evals/results/`.
 - [ ] **Step 3:** Add a "Results" section to `README.md` with a table: contender × (still works, lines changed, removed unrequested extras y/n, explained cuts y/n).
 - [ ] **Step 4:** Commit: `docs: comparison against plain Claude, code-simplifier, /simplify`.
+
+### Task 6 (added 2026-11-13, user request): Rename to mayasaar
+
+- Plugin, skill and branches renamed to `mayasaar`. Modes: `jaam-naam` (default) = clean up, `nav-aam <task>` = build, `nav-khaas` = full scope. Eval prompts and graders updated; suite re-run.
+
+### Task 7 (added 2026-11-13, user request): Other AI tools
+
+- `scripts/sync_adapters.py` generates each tool's file from `skills/mayasaar/SKILL.md`; `--check` is the test. Tools: Codex, Qoder, Devin, GitHub Copilot, Gemini CLI, OpenCode, OpenClaw, Cursor, Windsurf, Kiro, Cline, pi/AGENTS.md.

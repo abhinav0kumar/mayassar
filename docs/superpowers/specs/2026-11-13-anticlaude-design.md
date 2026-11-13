@@ -93,7 +93,19 @@ does. anticlaude has to beat them on the same tasks, and the comparison should
 show where it differs: it removes what the task didn't ask for, it explains each
 cut, and it can build from scratch.
 
-**Name:** still open. "anticlaude" puts Anthropic's product name in a published
+**Name (decided):** **mayasaar**. Modes: **jaam-naam** = redo what the AI did
+(clean up); **nav-aam** = new code, tidying only what it touches (build);
+**nav-khaas** = refactor the whole codebase (full). The README says in plain
+English what each mode does; no translations needed.
+Renaming the code from "anticlaude" is pending.
+
+**Other AI tools (decided, details pending):** usable beyond Claude Code
+(Codex, Cursor, Gemini CLI and similar), following ponytail's multi-tool layout.
+Scope: all of them, i.e. every tool ponytail ships for (Codex, Cursor, Windsurf,
+Cline, Kiro, OpenCode, Gemini CLI, GitHub Copilot, Qoder, Devin, OpenClaw, pi),
+reusing its layout. The evals stay Claude Code-only.
+
+**Earlier name notes:** "anticlaude" puts Anthropic's product name in a published
 tool. "human" is taken by a Claude Code prose skill (tw93/human), and it lands in
 the "AI humanizer" category, which conflicts with the anti-goal of disguising
 AI work.
