@@ -1,7 +1,20 @@
 # mayassar
 
+**mayassar** (Urdu: میسّر, "made easy; within reach"): code that's easy to read is
+code anyone can work with.
+
 AI coding assistants over-build. mayassar cuts their work back to the smallest,
 plainest change that does what the task asked for, and shows what it cut and why.
+
+## Why
+
+A fix that is one line arrives as a story instead, all jumbled and bloated. Ask the AI to clean it up and it tidies around its own complexity instead
+of admitting the whole thing should be smaller, even after several passes. Over
+time the repo gets hard to find your way around, even for the person who owns it.
+
+Everyone codes differently, but simple, well-organised code is something anyone
+can understand and work with. mayassar assumes the AI's work is bigger than it
+needs to be and produces what a sensible human would have written.
 
 ## Modes
 
