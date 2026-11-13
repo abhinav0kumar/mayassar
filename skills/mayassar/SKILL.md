@@ -8,6 +8,7 @@ description: >
   up, simplify or de-bloat what an AI wrote on a branch, says a change is
   over-engineered or should have been one line, or asks to build something "the
   simple way".
+argument-hint: "[jaam-naam | nav-aam <task> | nav-khaas]"
 ---
 
 # mayassar
