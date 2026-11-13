@@ -1,0 +1,6 @@
+{
+  "name": "mayassar",
+  "version": "0.1.0",
+  "description": "Cuts AI-written changes back to the smallest readable version a human would have written.",
+  "skills": "./skills/"
+}

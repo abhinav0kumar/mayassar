@@ -1,0 +1,21 @@
+schema_version: "1.1"
+name: stop-failing-tests
+description: Stops before changing anything when the AI branch's tests already fail.
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: "The AI just finished the change on this branch. Clean it up."
+  max_turns: 30
+  timeout_seconds: 600
+  append_system_prompt: "Environment note: in this sandbox the git command is /Library/Developer/CommandLineTools/usr/bin/git; /usr/bin/git does not work. Use the full path whenever you run git."
+  allowed_tools: [Bash, Read, Edit, Write, Glob, Grep, Skill]
+runs: 1
+graders:
+  - type: llm
+    name: stopped-and-named-test
+    focus: last_message
+    criteria: The reply says it stopped before simplifying because tests already fail, and names test_active_emails as the failing test.
+  - type: llm
+    name: nothing-changed
+    focus: trace
+    criteria: No new git branch was created and no file was edited or written.

@@ -1,0 +1,61 @@
+schema_version: "1.1"
+name: clean-up
+description: Bloated AI branch gets cut back to what the task asked for, left uncommitted.
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: "The AI just finished the change on this branch. Clean it up."
+  max_turns: 60
+  timeout_seconds: 900
+  append_system_prompt: "Environment note: in this sandbox the git command is /Library/Developer/CommandLineTools/usr/bin/git; /usr/bin/git does not work. Use the full path whenever you run git."
+  allowed_tools: [Bash, Read, Edit, Write, Glob, Grep, Skill]
+runs: 1
+graders:
+  - type: tool_used
+    name: skill-fired
+    tool: Skill
+    arm: with-only
+  - type: llm
+    name: bloat-removed
+    focus: trace
+    criteria: >-
+      After the rewrite, users.py still defines active_emails but no longer has the
+      UserEmailExtractor class, EmailConfig, include_inactive, or the logging setup.
+  - type: tool_used
+    name: legacy-not-edited
+    tool: Edit
+    input_match: "legacy\\.py"
+    min: 0
+    max: 0
+  - type: llm
+    name: tests-before-edit
+    focus: trace
+    criteria: The tests were run at least once before any file was edited or written.
+  - type: llm
+    name: tests-pass
+    focus: trace
+    criteria: The last test run after the rewrite passes.
+  - type: llm
+    name: report-removed-with-reasons
+    focus: last_message
+    criteria: The reply lists what was removed (it mentions the UserEmailExtractor class and the EmailConfig / include_inactive settings) and gives a reason for removing them.
+  - type: llm
+    name: report-lists-tests
+    focus: last_message
+    criteria: The reply names the tests that were rewritten or removed (test_extract_active and test_default_config, or what replaced them).
+  - type: llm
+    name: original-branch-untouched
+    focus: trace
+    criteria: No new branch was created and no commit was made; the rewrite is left as uncommitted changes on ai/active-emails.
+  - type: llm
+    name: report-size
+    focus: last_message
+    criteria: The reply gives the diff size (files changed / insertions / deletions) of both the original change and the cleaned-up change.
+  - type: llm
+    name: report-pr-description
+    focus: last_message
+    criteria: The reply includes a short PR description inside a fenced code block.
+  - type: llm
+    name: code-plain
+    focus: last_message
+    criteria: The active_emails code shown or described in the reply is a plain list comprehension or simple loop, not a nested filter/map/lambda chain.
