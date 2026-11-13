@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "mayasaar",
+  "description": "Cuts AI-written changes back to the smallest readable version a human would have written.",
+  "owner": {
+    "name": "TODO"
+  },
+  "plugins": [
+    {
+      "name": "mayasaar",
+      "description": "Cuts AI-written changes back to the smallest readable version a human would have written.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
