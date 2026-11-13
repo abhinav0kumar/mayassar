@@ -20,7 +20,10 @@ task asked for, placed where a person would look for it.
   (checks, tests before and after, report) is the same as clean up.
   Before moving anything, survey the repo and list each proposed move with its
   gain, its risk (including CI/deploy configs that match on file paths) and your
-  call. Change nothing until the user picks which ones to do.
+  call. The survey also covers unused code, code duplicated across files, and
+  docs and comments that are wrong, stale, or about the AI's own design. List
+  them like moves; don't reword ones that are just fine. Change nothing until
+  the user picks which ones to do.
 - Without `nav-khaas`, **fix scope**: tidy only code the change touches; leave
   every other file alone, however messy.
 
@@ -66,6 +69,8 @@ Do these in order. Each "stop" means: tell the user why, change nothing, end.
   class UserEmailExtractor: ...
   ```
 - No class, layer, wrapper, helper or config option with only one use.
+- Nothing the change adds that nobody uses, and nothing it re-implements that the
+  repo already has: call the existing code instead.
 - Follow the repo's existing language, style and conventions.
 - Docs and READMEs: cut to what a reader needs; drop text about the AI's own design.
 - Tests that only exercise removed scaffolding (e.g. they test the deleted class):
