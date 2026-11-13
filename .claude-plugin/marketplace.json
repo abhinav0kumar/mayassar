@@ -3,7 +3,7 @@
   "name": "mayasaar",
   "description": "Cuts AI-written changes back to the smallest readable version a human would have written.",
   "owner": {
-    "name": "TODO"
+    "name": "abhinav0kumar"
   },
   "plugins": [
     {

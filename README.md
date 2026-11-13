@@ -20,11 +20,14 @@ Results always go on a new `mayasaar/...` branch. Your branch is never touched.
 - Tests run before and after. If they already fail, it stops.
 - Uncommitted changes? It stops and never stashes or discards them.
 
-## Install (Claude Code, local)
+## Install (Claude Code)
 
 ```
-claude --plugin-dir /path/to/mayasaar
+/plugin marketplace add abhinav0kumar/mayasaar
+/plugin install mayasaar@mayasaar
 ```
+
+From a local clone: `claude --plugin-dir /path/to/mayasaar`.
 
 ## Other tools
 
